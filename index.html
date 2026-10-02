@@ -53,12 +53,12 @@
 <body>
 
 <div id="landingScreen" class="landing">
- <div class="landingNav"><div class="landingBrand"><span class="mark">T</span><span>Trade<em>Tools</em> Business</span></div><div class="landingActions"><button class="btn secondary" id="landingLogin">Acceso empresas</button><button class="btn" id="landingDemo">Ver demo</button></div></div>
+ <div class="landingNav"><div class="landingBrand"><span class="mark">T</span><span>Trade<em>Tools</em> Business</span></div><div class="landingActions"><button class="btn secondary" id="landingLogin">Acceso empresas</button><button class="btn secondary" id="landingContact">Quiero TradeTools</button><button class="btn" id="landingDemo">Ver demo</button></div></div>
  <section class="landingHero"><div>
   <span style="color:var(--lime);font-weight:850;letter-spacing:.12em;text-transform:uppercase;font-size:12px">Gestión para autónomos y pequeñas empresas</span>
   <h1>Todo tu negocio <span>en un solo sitio.</span></h1>
   <p>Clientes, presupuestos, trabajos, operarios y partes desde el ordenador o el móvil. Prueba una empresa ficticia completa antes de registrarte.</p>
-  <div class="landingCtas"><button class="btn" id="landingDemo2">▶ Probar demo gratis</button><button class="btn secondary" id="landingLogin2">Entrar a mi empresa</button></div>
+  <div class="landingCtas"><button class="btn" id="landingDemo2">▶ Probar demo gratis</button><button class="btn secondary" id="landingContact2">Quiero TradeTools</button><button class="btn secondary" id="landingLogin2">Entrar</button></div>
   <p style="font-size:13px;margin-top:14px">Sin registro · Datos ficticios · La demo no modifica datos reales</p>
  </div><div class="demoPreview">
   <div class="previewTop"><b>Norte Instalaciones S.L.</b><span class="muted">● Online</span></div>
@@ -66,6 +66,39 @@
   <div class="previewRows"><div class="previewRow"><span><b>PAR-2026-0007</b><small class="muted" style="display:block">Cambio cuadro eléctrico</small></span><span class="status in_progress">En curso</span></div><div class="previewRow"><span><b>PAR-2026-0008</b><small class="muted" style="display:block">Revisión climatización</small></span><span class="status pending">Pendiente</span></div><div class="previewRow"><span><b>PRE-2026-0012</b><small class="muted" style="display:block">Instalación cocina</small></span><span class="status accepted">Aceptado</span></div></div>
  </div></section>
  <section class="landingFeatures"><div class="feature"><b>€ Presupuestos</b><span>Crea, envía y convierte presupuestos en trabajos.</span></div><div class="feature"><b>▣ Partes</b><span>Horas, materiales, fotos y firma del cliente.</span></div><div class="feature"><b>♟ Equipo</b><span>Asigna trabajos a cada operario.</span></div><div class="feature"><b>☁ Online</b><span>Oficina y móvil siempre sincronizados.</span></div></section>
+
+<section class="salesSection" id="contacto">
+  <span class="salesEyebrow">Quiero TradeTools</span>
+  <h2 class="salesTitle">Cuéntame qué tipo de empresa tienes.</h2>
+  <p class="salesLead">Déjame tus datos y te contacto para ver si TradeTools encaja con vuestra forma de trabajar.</p>
+  <div class="salesSplit">
+    <div class="benefitCard">
+      <form id="leadForm" class="leadForm">
+        <div class="leadFormGrid">
+          <div class="field"><label>Empresa</label><input id="leadCompany" required maxlength="120" placeholder="Ej. Instalaciones Norte"></div>
+          <div class="field"><label>Tu nombre</label><input id="leadName" required maxlength="120" placeholder="Nombre y apellidos"></div>
+          <div class="field"><label>Teléfono</label><input id="leadPhone" maxlength="40" placeholder="Teléfono de contacto"></div>
+          <div class="field"><label>Email</label><input id="leadEmail" type="email" maxlength="254" placeholder="tu@email.com"></div>
+          <div class="field full"><label>¿Qué quieres mejorar?</label><textarea id="leadNeed" maxlength="1200" placeholder="Presupuestos, partes, trabajadores, trabajos, clientes..."></textarea></div>
+        </div>
+        <button class="btn" id="leadSubmit" type="submit">Quiero información</button>
+        <small class="muted">Necesitamos al menos teléfono o email para poder responderte.</small>
+      </form>
+    </div>
+    <div class="priceCard">
+      <h3>Oferta de lanzamiento</h3>
+      <div class="priceMain">149 €</div>
+      <div class="priceSub">configuración inicial</div>
+      <div class="priceMain" style="font-size:32px;margin-top:18px">19 €/mes</div>
+      <div class="priceSub">servicio online y mantenimiento</div>
+      <div class="checkList">
+        <div class="checkItem"><span class="checkIcon">✓</span><span>Solo para los primeros 3 clientes</span></div>
+        <div class="checkItem"><span class="checkIcon">✓</span><span>Adaptación básica a la empresa</span></div>
+        <div class="checkItem"><span class="checkIcon">✓</span><span>Acceso desde móvil y ordenador</span></div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="salesSection compact" id="para-quien">
   <span class="salesEyebrow">Menos WhatsApp, Excel y papeles sueltos</span>
@@ -160,38 +193,7 @@
 </section>
 
 
-<section class="salesSection" id="contacto">
-  <span class="salesEyebrow">Quiero TradeTools</span>
-  <h2 class="salesTitle">Cuéntame qué tipo de empresa tienes.</h2>
-  <p class="salesLead">Déjame tus datos y te contacto para ver si TradeTools encaja con vuestra forma de trabajar.</p>
-  <div class="salesSplit">
-    <div class="benefitCard">
-      <form id="leadForm" class="leadForm">
-        <div class="leadFormGrid">
-          <div class="field"><label>Empresa</label><input id="leadCompany" required maxlength="120" placeholder="Ej. Instalaciones Norte"></div>
-          <div class="field"><label>Tu nombre</label><input id="leadName" required maxlength="120" placeholder="Nombre y apellidos"></div>
-          <div class="field"><label>Teléfono</label><input id="leadPhone" maxlength="40" placeholder="Teléfono de contacto"></div>
-          <div class="field"><label>Email</label><input id="leadEmail" type="email" maxlength="254" placeholder="tu@email.com"></div>
-          <div class="field full"><label>¿Qué quieres mejorar?</label><textarea id="leadNeed" maxlength="1200" placeholder="Presupuestos, partes, trabajadores, trabajos, clientes..."></textarea></div>
-        </div>
-        <button class="btn" id="leadSubmit" type="submit">Quiero información</button>
-        <small class="muted">Necesitamos al menos teléfono o email para poder responderte.</small>
-      </form>
-    </div>
-    <div class="priceCard">
-      <h3>Oferta de lanzamiento</h3>
-      <div class="priceMain">149 €</div>
-      <div class="priceSub">configuración inicial</div>
-      <div class="priceMain" style="font-size:32px;margin-top:18px">19 €/mes</div>
-      <div class="priceSub">servicio online y mantenimiento</div>
-      <div class="checkList">
-        <div class="checkItem"><span class="checkIcon">✓</span><span>Solo para los primeros 3 clientes</span></div>
-        <div class="checkItem"><span class="checkIcon">✓</span><span>Adaptación básica a la empresa</span></div>
-        <div class="checkItem"><span class="checkIcon">✓</span><span>Acceso desde móvil y ordenador</span></div>
-      </div>
-    </div>
-  </div>
-</section>
+
 
 <section class="ctaBox">
   <div><h2>¿Quieres verlo funcionando con tu empresa?</h2><p>Prueba primero la demo y, si te encaja, crea el acceso de tu empresa para empezar a configurarlo.</p></div>
@@ -359,7 +361,7 @@ function fillSettings(){if(!company)return;$('sName').value=company.name||'';$('
 $('saveSettings').onclick=async()=>{const payload={name:$('sName').value.trim(),cif:$('sTax').value.trim(),phone:$('sPhone').value.trim(),email:$('sEmail').value.trim(),website:$('sWebsite').value.trim(),address:$('sAddress').value.trim()};const {data,error}=await sb.from('tt_companies').update(payload).eq('id',company.id).select().single();if(error)return toast(error.message);company=data;renderAll();toast('Empresa actualizada')};
 
 const sessionResult=await sb.auth.getSession();initialSession=sessionResult.data.session||null;$('landingDemo').onclick=$('landingDemo2').onclick=enterDemo;$('landingLogin').onclick=$('landingLogin2').onclick=openAccess;$('salesDemoBtn').onclick=enterDemo;
-$('salesContactBtn').onclick=()=>document.getElementById('contacto')?.scrollIntoView({behavior:'smooth'});
+$('salesContactBtn').onclick=$('landingContact').onclick=$('landingContact2').onclick=()=>document.getElementById('contacto')?.scrollIntoView({behavior:'smooth',block:'start'});
 $('leadForm').addEventListener('submit',async e=>{
   e.preventDefault();
   const company_name=$('leadCompany').value.trim();
