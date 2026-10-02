@@ -43,6 +43,11 @@
 .faq{display:grid;gap:10px;margin-top:26px}.faqItem{background:#141c17;border:1px solid var(--line);border-radius:14px;padding:17px 19px}.faqItem b{display:block;margin-bottom:5px}.faqItem span{color:var(--muted)}
 @media(max-width:850px){.problemGrid,.benefitGrid,.flowGrid{grid-template-columns:1fr}.salesSplit{grid-template-columns:1fr}.ctaBox{flex-direction:column;align-items:flex-start}}
 
+
+.leadForm{display:grid;gap:12px;margin-top:22px}.leadFormGrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.leadForm .field.full{grid-column:1/-1}
+.launchBadge{display:inline-flex;align-items:center;gap:8px;background:#d5ff5810;border:1px solid #d5ff5840;color:#eaff9f;border-radius:999px;padding:8px 11px;font-weight:800;font-size:13px;margin-top:12px}
+@media(max-width:650px){.leadFormGrid{grid-template-columns:1fr}.leadForm .field.full{grid-column:auto}}
+
 </style>
 </head>
 <body>
@@ -113,7 +118,7 @@
 <section class="salesSection" id="precio">
   <span class="salesEyebrow">Precio lanzamiento</span>
   <h2 class="salesTitle">Empieza con una versión adaptada a tu empresa.</h2>
-  <p class="salesLead">La configuración puede personalizarse con tus datos, trabajadores, logo y forma de trabajar.</p>
+  <p class="salesLead">La configuración puede personalizarse con tus datos, trabajadores, logo y forma de trabajar.</p><div class="launchBadge">⚡ Precio lanzamiento para los primeros 3 clientes</div>
   <div class="salesSplit">
     <div class="priceCard">
       <h3>TradeTools Business</h3>
@@ -154,9 +159,43 @@
   </div>
 </section>
 
+
+<section class="salesSection" id="contacto">
+  <span class="salesEyebrow">Quiero TradeTools</span>
+  <h2 class="salesTitle">Cuéntame qué tipo de empresa tienes.</h2>
+  <p class="salesLead">Déjame tus datos y te contacto para ver si TradeTools encaja con vuestra forma de trabajar.</p>
+  <div class="salesSplit">
+    <div class="benefitCard">
+      <form id="leadForm" class="leadForm">
+        <div class="leadFormGrid">
+          <div class="field"><label>Empresa</label><input id="leadCompany" required maxlength="120" placeholder="Ej. Instalaciones Norte"></div>
+          <div class="field"><label>Tu nombre</label><input id="leadName" required maxlength="120" placeholder="Nombre y apellidos"></div>
+          <div class="field"><label>Teléfono</label><input id="leadPhone" maxlength="40" placeholder="Teléfono de contacto"></div>
+          <div class="field"><label>Email</label><input id="leadEmail" type="email" maxlength="254" placeholder="tu@email.com"></div>
+          <div class="field full"><label>¿Qué quieres mejorar?</label><textarea id="leadNeed" maxlength="1200" placeholder="Presupuestos, partes, trabajadores, trabajos, clientes..."></textarea></div>
+        </div>
+        <button class="btn" id="leadSubmit" type="submit">Quiero información</button>
+        <small class="muted">Necesitamos al menos teléfono o email para poder responderte.</small>
+      </form>
+    </div>
+    <div class="priceCard">
+      <h3>Oferta de lanzamiento</h3>
+      <div class="priceMain">149 €</div>
+      <div class="priceSub">configuración inicial</div>
+      <div class="priceMain" style="font-size:32px;margin-top:18px">19 €/mes</div>
+      <div class="priceSub">servicio online y mantenimiento</div>
+      <div class="checkList">
+        <div class="checkItem"><span class="checkIcon">✓</span><span>Solo para los primeros 3 clientes</span></div>
+        <div class="checkItem"><span class="checkIcon">✓</span><span>Adaptación básica a la empresa</span></div>
+        <div class="checkItem"><span class="checkIcon">✓</span><span>Acceso desde móvil y ordenador</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="ctaBox">
   <div><h2>¿Quieres verlo funcionando con tu empresa?</h2><p>Prueba primero la demo y, si te encaja, crea el acceso de tu empresa para empezar a configurarlo.</p></div>
-  <div class="landingCtas"><button class="btn" id="salesDemoBtn">Ver demo</button><button class="btn secondary" id="salesStartBtn">Crear mi empresa</button></div>
+  <div class="landingCtas"><button class="btn" id="salesDemoBtn">Ver demo</button><button class="btn secondary" id="salesContactBtn">Quiero TradeTools</button></div>
 </section>
 
 </div>
@@ -319,6 +358,30 @@ $('inviteBtn').onclick=async()=>{const email=$('inviteEmail').value.trim().toLow
 function fillSettings(){if(!company)return;$('sName').value=company.name||'';$('sTax').value=company.cif||'';$('sPhone').value=company.phone||'';$('sEmail').value=company.email||'';$('sWebsite').value=company.website||'';$('sAddress').value=company.address||''}
 $('saveSettings').onclick=async()=>{const payload={name:$('sName').value.trim(),cif:$('sTax').value.trim(),phone:$('sPhone').value.trim(),email:$('sEmail').value.trim(),website:$('sWebsite').value.trim(),address:$('sAddress').value.trim()};const {data,error}=await sb.from('tt_companies').update(payload).eq('id',company.id).select().single();if(error)return toast(error.message);company=data;renderAll();toast('Empresa actualizada')};
 
-const sessionResult=await sb.auth.getSession();initialSession=sessionResult.data.session||null;$('landingDemo').onclick=$('landingDemo2').onclick=enterDemo;$('landingLogin').onclick=$('landingLogin2').onclick=openAccess;$('salesDemoBtn').onclick=enterDemo;$('salesStartBtn').onclick=()=>{openAccess();setTimeout(()=>{$('signupTab').click()},0)};showLanding();sb.auth.onAuthStateChange((event,s)=>{initialSession=s||null;if(event==='SIGNED_OUT'&&!demoMode)showLanding()});
+const sessionResult=await sb.auth.getSession();initialSession=sessionResult.data.session||null;$('landingDemo').onclick=$('landingDemo2').onclick=enterDemo;$('landingLogin').onclick=$('landingLogin2').onclick=openAccess;$('salesDemoBtn').onclick=enterDemo;
+$('salesContactBtn').onclick=()=>document.getElementById('contacto')?.scrollIntoView({behavior:'smooth'});
+$('leadForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  const company_name=$('leadCompany').value.trim();
+  const contact_name=$('leadName').value.trim();
+  const phone=$('leadPhone').value.trim();
+  const email=$('leadEmail').value.trim();
+  const need=$('leadNeed').value.trim();
+  if(!company_name||!contact_name)return toast('Completa empresa y nombre');
+  if(!phone&&!email)return toast('Añade teléfono o email');
+  const btn=$('leadSubmit');btn.disabled=true;btn.textContent='Enviando...';
+  try{
+    const {error}=await sb.from('tt_leads').insert({company_name,contact_name,phone:phone||null,email:email||null,need:need||null,source:'tradetools-landing'});
+    if(error)throw error;
+    $('leadForm').reset();
+    toast('Solicitud enviada');
+    btn.textContent='Enviado ✓';
+    setTimeout(()=>btn.textContent='Quiero información',1800);
+  }catch(err){
+    toast('No se pudo enviar. Prueba otra vez.');
+    btn.textContent='Quiero información';
+  }finally{btn.disabled=false}
+});
+showLanding();sb.auth.onAuthStateChange((event,s)=>{initialSession=s||null;if(event==='SIGNED_OUT'&&!demoMode)showLanding()});
 </script>
 </body></html>
