@@ -205,7 +205,7 @@
 
 <div id="authScreen" class="loginShell hidden">
   <div class="login">
-    <div class="brand" style="margin:0"><span class="mark">T</span><span>Trade<em>Tools</em> Business</span></div>
+    <div style="display:flex;justify-content:space-between;gap:12px;align-items:center"><div class="brand" style="margin:0"><span class="mark">T</span><span>Trade<em>Tools</em> Business</span></div><button class="btn secondary small" id="backToLanding">← Volver</button></div>
     <h1 id="authTitle">Entrar</h1><p class="muted">Tu empresa, trabajos y presupuestos sincronizados.</p>
     <div class="seg"><button id="loginTab" class="on">Entrar</button><button id="signupTab">Crear cuenta</button></div>
     <div class="fields">
@@ -219,7 +219,7 @@
 </div>
 
 <div id="companySetup" class="loginShell hidden">
- <div class="login"><div class="brand" style="margin:0"><span class="mark">T</span><span>Trade<em>Tools</em> Business</span></div><h1>Crear empresa</h1><p class="muted">Será tu espacio privado para clientes, presupuestos y trabajos.</p>
+ <div class="login"><div style="display:flex;justify-content:space-between;gap:12px;align-items:center"><div class="brand" style="margin:0"><span class="mark">T</span><span>Trade<em>Tools</em> Business</span></div><button class="btn secondary small" id="backFromSetup">← Volver</button></div><h1>Crear empresa</h1><p class="muted">Será tu espacio privado para clientes, presupuestos y trabajos.</p>
   <div class="fields"><div class="field full"><label>Nombre de empresa</label><input id="setupName" placeholder="Ej. Instalaciones Norte"></div><div class="field"><label>CIF/NIF</label><input id="setupTax"></div><div class="field"><label>Teléfono</label><input id="setupPhone"></div></div>
   <button class="btn" id="createCompanyBtn" style="width:100%;margin-top:14px">Crear empresa</button>
   <button class="btn secondary" id="setupLogout" style="width:100%;margin-top:8px">Cerrar sesión</button>
@@ -360,7 +360,7 @@ $('inviteBtn').onclick=async()=>{const email=$('inviteEmail').value.trim().toLow
 function fillSettings(){if(!company)return;$('sName').value=company.name||'';$('sTax').value=company.cif||'';$('sPhone').value=company.phone||'';$('sEmail').value=company.email||'';$('sWebsite').value=company.website||'';$('sAddress').value=company.address||''}
 $('saveSettings').onclick=async()=>{const payload={name:$('sName').value.trim(),cif:$('sTax').value.trim(),phone:$('sPhone').value.trim(),email:$('sEmail').value.trim(),website:$('sWebsite').value.trim(),address:$('sAddress').value.trim()};const {data,error}=await sb.from('tt_companies').update(payload).eq('id',company.id).select().single();if(error)return toast(error.message);company=data;renderAll();toast('Empresa actualizada')};
 
-const sessionResult=await sb.auth.getSession();initialSession=sessionResult.data.session||null;$('landingDemo').onclick=$('landingDemo2').onclick=enterDemo;$('landingLogin').onclick=$('landingLogin2').onclick=openAccess;$('salesDemoBtn').onclick=enterDemo;
+const sessionResult=await sb.auth.getSession();initialSession=sessionResult.data.session||null;$('landingDemo').onclick=$('landingDemo2').onclick=enterDemo;$('landingLogin').onclick=$('landingLogin2').onclick=openAccess;$('backToLanding').onclick=showLanding;$('backFromSetup').onclick=showLanding;$('salesDemoBtn').onclick=enterDemo;
 $('salesContactBtn').onclick=$('landingContact').onclick=$('landingContact2').onclick=()=>document.getElementById('contacto')?.scrollIntoView({behavior:'smooth',block:'start'});
 $('leadForm').addEventListener('submit',async e=>{
   e.preventDefault();
