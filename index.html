@@ -20,6 +20,29 @@
 .demoBanner{position:fixed;z-index:60;left:50%;top:10px;transform:translateX(-50%);background:var(--lime);color:#111710;padding:8px 13px;border-radius:999px;font-size:12px;font-weight:900;box-shadow:0 8px 30px #0008}
 @media(max-width:850px){.landingHero{grid-template-columns:1fr;padding-top:46px}.landingFeatures{grid-template-columns:1fr 1fr}}@media(max-width:560px){.landingNav{height:66px}.landingNav .btn.secondary{display:none}.landingHero h1{font-size:45px}.landingFeatures{grid-template-columns:1fr}.landingCtas .btn{flex:1}}
 
+
+.salesSection{width:min(1180px,calc(100% - 36px));margin:auto;padding:78px 0}
+.salesSection.compact{padding-top:24px}
+.salesEyebrow{color:var(--lime);font-weight:850;letter-spacing:.12em;text-transform:uppercase;font-size:12px}
+.salesTitle{font-size:clamp(32px,5vw,54px);line-height:1.03;letter-spacing:-.045em;margin:10px 0 14px;max-width:820px}
+.salesLead{color:var(--muted);font-size:18px;line-height:1.65;max-width:780px}
+.problemGrid,.benefitGrid,.flowGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:30px}
+.problemCard,.benefitCard,.flowCard{background:#141c17;border:1px solid var(--line);border-radius:18px;padding:21px}
+.problemCard b,.benefitCard b,.flowCard b{display:block;font-size:17px;margin-bottom:7px}
+.problemCard p,.benefitCard p,.flowCard p{margin:0;color:var(--muted);line-height:1.55}
+.flowNum{width:34px;height:34px;border-radius:10px;background:var(--lime);color:#111710;display:grid;place-items:center;font-weight:950;margin-bottom:14px}
+.salesSplit{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:stretch;margin-top:30px}
+.checkList{display:grid;gap:11px;margin-top:19px}.checkItem{display:flex;gap:10px;align-items:flex-start;color:#dbe4da}.checkIcon{color:var(--lime);font-weight:900}
+.priceCard{background:linear-gradient(180deg,#1d2820,#141b16);border:1px solid #536b58;border-radius:24px;padding:26px;position:relative;overflow:hidden}
+.priceCard:before{content:"";position:absolute;width:220px;height:220px;border-radius:50%;background:#d5ff5812;right:-75px;top:-85px}
+.priceCard h3{font-size:24px;margin:0 0 5px}.priceMain{font-size:48px;font-weight:950;letter-spacing:-.05em;margin:18px 0 2px}.priceSub{color:var(--muted)}
+.priceSmall{font-size:13px;color:var(--muted);margin-top:14px;line-height:1.55}
+.ctaBox{width:min(1180px,calc(100% - 36px));margin:0 auto 84px;background:linear-gradient(135deg,#d5ff58,#aef84e);color:#10160f;border-radius:26px;padding:34px;display:flex;justify-content:space-between;gap:24px;align-items:center}
+.ctaBox h2{font-size:clamp(28px,4vw,42px);line-height:1.05;letter-spacing:-.04em;margin:0 0 8px}.ctaBox p{margin:0;color:#273021;max-width:650px}
+.ctaBox .btn{background:#111710;color:white}.ctaBox .btn.secondary{background:transparent;border-color:#273021;color:#111710}
+.faq{display:grid;gap:10px;margin-top:26px}.faqItem{background:#141c17;border:1px solid var(--line);border-radius:14px;padding:17px 19px}.faqItem b{display:block;margin-bottom:5px}.faqItem span{color:var(--muted)}
+@media(max-width:850px){.problemGrid,.benefitGrid,.flowGrid{grid-template-columns:1fr}.salesSplit{grid-template-columns:1fr}.ctaBox{flex-direction:column;align-items:flex-start}}
+
 </style>
 </head>
 <body>
@@ -38,6 +61,104 @@
   <div class="previewRows"><div class="previewRow"><span><b>PAR-2026-0007</b><small class="muted" style="display:block">Cambio cuadro eléctrico</small></span><span class="status in_progress">En curso</span></div><div class="previewRow"><span><b>PAR-2026-0008</b><small class="muted" style="display:block">Revisión climatización</small></span><span class="status pending">Pendiente</span></div><div class="previewRow"><span><b>PRE-2026-0012</b><small class="muted" style="display:block">Instalación cocina</small></span><span class="status accepted">Aceptado</span></div></div>
  </div></section>
  <section class="landingFeatures"><div class="feature"><b>€ Presupuestos</b><span>Crea, envía y convierte presupuestos en trabajos.</span></div><div class="feature"><b>▣ Partes</b><span>Horas, materiales, fotos y firma del cliente.</span></div><div class="feature"><b>♟ Equipo</b><span>Asigna trabajos a cada operario.</span></div><div class="feature"><b>☁ Online</b><span>Oficina y móvil siempre sincronizados.</span></div></section>
+
+<section class="salesSection compact" id="para-quien">
+  <span class="salesEyebrow">Menos WhatsApp, Excel y papeles sueltos</span>
+  <h2 class="salesTitle">Pensado para empresas que hacen trabajos fuera de la oficina.</h2>
+  <p class="salesLead">TradeTools centraliza lo que normalmente acaba repartido entre mensajes, notas, hojas de cálculo y partes en papel.</p>
+  <div class="problemGrid">
+    <div class="problemCard"><b>Presupuestos sin seguimiento</b><p>Sabes cuáles están enviados, aceptados o pendientes y puedes convertirlos en trabajo sin volver a escribirlo todo.</p></div>
+    <div class="problemCard"><b>Partes difíciles de controlar</b><p>El operario registra horas, materiales, fotos y firma desde el móvil y la oficina lo ve en el mismo sistema.</p></div>
+    <div class="problemCard"><b>Información repartida</b><p>Clientes, trabajos, responsables y estados quedan ordenados en una sola herramienta.</p></div>
+  </div>
+</section>
+
+<section class="salesSection" id="como-funciona">
+  <span class="salesEyebrow">Cómo funciona</span>
+  <h2 class="salesTitle">Del presupuesto al trabajo terminado.</h2>
+  <div class="flowGrid">
+    <div class="flowCard"><div class="flowNum">1</div><b>Creas el presupuesto</b><p>Añades cliente, conceptos, cantidades, precios e IVA. Lo puedes imprimir o guardar como PDF.</p></div>
+    <div class="flowCard"><div class="flowNum">2</div><b>Lo conviertes en trabajo</b><p>Cuando se acepta, generas el trabajo y lo asignas al operario correspondiente.</p></div>
+    <div class="flowCard"><div class="flowNum">3</div><b>El operario completa el parte</b><p>Horas, materiales, trabajo realizado, fotos y firma del cliente desde el móvil.</p></div>
+  </div>
+</section>
+
+<section class="salesSection" id="incluye">
+  <span class="salesEyebrow">Qué incluye</span>
+  <h2 class="salesTitle">Una herramienta sencilla para el dueño y para el trabajador.</h2>
+  <div class="salesSplit">
+    <div class="benefitCard">
+      <b style="font-size:22px">Para la oficina</b>
+      <div class="checkList">
+        <div class="checkItem"><span class="checkIcon">✓</span><span>Panel con clientes, trabajos abiertos, horas y presupuestos aceptados.</span></div>
+        <div class="checkItem"><span class="checkIcon">✓</span><span>Gestión de clientes y datos de empresa.</span></div>
+        <div class="checkItem"><span class="checkIcon">✓</span><span>Presupuestos con PDF, estados y conversión a trabajo.</span></div>
+        <div class="checkItem"><span class="checkIcon">✓</span><span>Asignación de trabajos a operarios.</span></div>
+        <div class="checkItem"><span class="checkIcon">✓</span><span>Información sincronizada entre ordenador y móvil.</span></div>
+      </div>
+    </div>
+    <div class="benefitCard">
+      <b style="font-size:22px">Para el operario</b>
+      <div class="checkList">
+        <div class="checkItem"><span class="checkIcon">✓</span><span>Acceso desde el móvil.</span></div>
+        <div class="checkItem"><span class="checkIcon">✓</span><span>Consulta de trabajos asignados.</span></div>
+        <div class="checkItem"><span class="checkIcon">✓</span><span>Registro de horas y materiales.</span></div>
+        <div class="checkItem"><span class="checkIcon">✓</span><span>Fotos del trabajo.</span></div>
+        <div class="checkItem"><span class="checkIcon">✓</span><span>Firma del cliente y cierre del parte.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="salesSection" id="precio">
+  <span class="salesEyebrow">Precio orientativo</span>
+  <h2 class="salesTitle">Empieza con una versión adaptada a tu empresa.</h2>
+  <p class="salesLead">La configuración puede personalizarse con tus datos, trabajadores, logo y forma de trabajar.</p>
+  <div class="salesSplit">
+    <div class="priceCard">
+      <h3>TradeTools Business</h3>
+      <div class="priceMain">Desde 499 €</div>
+      <div class="priceSub">configuración inicial</div>
+      <div class="checkList">
+        <div class="checkItem"><span class="checkIcon">✓</span><span>Configuración de empresa y usuarios</span></div>
+        <div class="checkItem"><span class="checkIcon">✓</span><span>Clientes, presupuestos, trabajos y partes</span></div>
+        <div class="checkItem"><span class="checkIcon">✓</span><span>Versión móvil + ordenador</span></div>
+        <div class="checkItem"><span class="checkIcon">✓</span><span>Adaptación visual básica a la empresa</span></div>
+      </div>
+      <div class="priceMain" style="font-size:32px;margin-top:25px">25 €/mes</div>
+      <div class="priceSub">servicio online y mantenimiento</div>
+      <p class="priceSmall">Precio orientativo para una implantación estándar. Funciones especiales o integraciones se presupuestan aparte.</p>
+    </div>
+    <div class="benefitCard">
+      <b style="font-size:22px">También se puede adaptar</b>
+      <p class="muted">Si una empresa necesita algo diferente, TradeTools puede crecer por módulos.</p>
+      <div class="checkList">
+        <div class="checkItem"><span class="checkIcon">+</span><span>Calendario y planificación de trabajos</span></div>
+        <div class="checkItem"><span class="checkIcon">+</span><span>Facturación</span></div>
+        <div class="checkItem"><span class="checkIcon">+</span><span>Stock y materiales</span></div>
+        <div class="checkItem"><span class="checkIcon">+</span><span>Recordatorios automáticos</span></div>
+        <div class="checkItem"><span class="checkIcon">+</span><span>Funciones específicas según el sector</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="salesSection" id="faq">
+  <span class="salesEyebrow">Preguntas frecuentes</span>
+  <h2 class="salesTitle">Lo importante antes de probarlo.</h2>
+  <div class="faq">
+    <div class="faqItem"><b>¿Hace falta instalar un programa?</b><span>No. Se abre desde el navegador en ordenador, tablet o móvil.</span></div>
+    <div class="faqItem"><b>¿Los trabajadores ven toda la empresa?</b><span>No necesariamente. La versión online distingue entre administrador y trabajador para limitar lo que ve cada perfil.</span></div>
+    <div class="faqItem"><b>¿La demo guarda cambios?</b><span>No. La demo usa datos ficticios y está separada de las empresas reales.</span></div>
+    <div class="faqItem"><b>¿Se puede personalizar?</b><span>Sí. La idea es adaptar logo, datos, trabajadores y flujo de trabajo a cada negocio.</span></div>
+  </div>
+</section>
+
+<section class="ctaBox">
+  <div><h2>¿Quieres verlo funcionando con tu empresa?</h2><p>Prueba primero la demo y, si te encaja, crea el acceso de tu empresa para empezar a configurarlo.</p></div>
+  <div class="landingCtas"><button class="btn" id="salesDemoBtn">Ver demo</button><button class="btn secondary" id="salesStartBtn">Crear mi empresa</button></div>
+</section>
+
 </div>
 <div id="demoBanner" class="demoBanner hidden">MODO DEMO · DATOS FICTICIOS</div>
 
@@ -198,6 +319,6 @@ $('inviteBtn').onclick=async()=>{const email=$('inviteEmail').value.trim().toLow
 function fillSettings(){if(!company)return;$('sName').value=company.name||'';$('sTax').value=company.cif||'';$('sPhone').value=company.phone||'';$('sEmail').value=company.email||'';$('sWebsite').value=company.website||'';$('sAddress').value=company.address||''}
 $('saveSettings').onclick=async()=>{const payload={name:$('sName').value.trim(),cif:$('sTax').value.trim(),phone:$('sPhone').value.trim(),email:$('sEmail').value.trim(),website:$('sWebsite').value.trim(),address:$('sAddress').value.trim()};const {data,error}=await sb.from('tt_companies').update(payload).eq('id',company.id).select().single();if(error)return toast(error.message);company=data;renderAll();toast('Empresa actualizada')};
 
-const sessionResult=await sb.auth.getSession();initialSession=sessionResult.data.session||null;$('landingDemo').onclick=$('landingDemo2').onclick=enterDemo;$('landingLogin').onclick=$('landingLogin2').onclick=openAccess;showLanding();sb.auth.onAuthStateChange((event,s)=>{initialSession=s||null;if(event==='SIGNED_OUT'&&!demoMode)showLanding()});
+const sessionResult=await sb.auth.getSession();initialSession=sessionResult.data.session||null;$('landingDemo').onclick=$('landingDemo2').onclick=enterDemo;$('landingLogin').onclick=$('landingLogin2').onclick=openAccess;$('salesDemoBtn').onclick=enterDemo;$('salesStartBtn').onclick=()=>{openAccess();setTimeout(()=>{$('signupTab').click()},0)};showLanding();sb.auth.onAuthStateChange((event,s)=>{initialSession=s||null;if(event==='SIGNED_OUT'&&!demoMode)showLanding()});
 </script>
 </body></html>
